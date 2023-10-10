@@ -1,14 +1,15 @@
-import Button from "../../components/ui/Button";
+import { Divider } from "@nextui-org/react";
+import TasksLists from "../../components/TasksLists";
+
 
 const MainPage = () => {
     return ( 
-        <div className="w-full  border-b mx-auto">
-            <div className="flex gap-3 max-w-screen-2xl mx-auto pb-2 pt-4 ">
-                <Button title={"Boards"} bg="blue" color="blue" />
-                <Button title={"Zemoso"} bg="gray" color={"gray"}/>
-                <Button title={"Taskify Workspace"} bg="gray" color={"gray"}/>
-                <Button title={"Workspace Visiible"} bg="gray" color={"gray"}/>
-                <Button title={"Invite"} bg="gray" color={"gray"}/>
+        <div className="w-full">
+            <Divider/>
+            <div className="flex max-w-screen-2xl mx-auto gap-5 mt-10">
+                <TasksLists title={"To Do"} todoNum={3}/>
+                <TasksLists title={"Working"} todoNum={3}/>
+                <TasksLists title={"Done"} todoNum={3}/>
             </div>
         </div>
      );
