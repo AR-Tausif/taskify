@@ -3,6 +3,8 @@ import HomeLayout  from "../layout/HomeLayout";
 import Main  from "../layout/Main";
 import Home from "../pages/home/Home";
 import MainPage from "../pages/main/MainPage";
+import Boards from "../pages/main/Boards";
+import History from "../pages/main/History";
 
 
 export const router = createBrowserRouter([
@@ -23,7 +25,15 @@ export const router = createBrowserRouter([
             {
                 path: "/main",
                 element: <MainPage/>
-            }
+            },
+            {
+                path:"board",
+                element: <Boards/>
+            },
+            {
+                path:"history",
+                element: <History/>
+            },
         ]
     }
 ])
