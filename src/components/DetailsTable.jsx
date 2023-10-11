@@ -34,23 +34,6 @@ const people = [
     lastSeen: '3h ago',
     lastSeenDateTime: '2023-01-23T13:23Z',
   },
-  {
-    name: 'Courtney Henry',
-    email: 'courtney.henry@example.com',
-    role: 'Designer',
-    imageUrl:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    lastSeen: '3h ago',
-    lastSeenDateTime: '2023-01-23T13:23Z',
-  },
-  {
-    name: 'Tom Cook',
-    email: 'tom.cook@example.com',
-    role: 'Director of Product',
-    imageUrl:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    lastSeen: null,
-  },
 ]
 
 
@@ -61,21 +44,21 @@ const DetailsTable = () => {
                             {
                               people.map((person)=> (
                                 <tr key={person.email}>
-                                <td className="p-2 whitespace-nowrap">
+                                <td className="p-3 rounded-md whitespace-nowrap hover:bg-gray-100">
                                     <div className="flex items-center">
-                                        <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
-                                            <img className="rounded-full" src={person.imageUrl} width="30" height="30" alt={person.name}/>
+                                        <div className="w-5 h-5 overflow-hidden flex-shrink-0 mr-2 sm:mr-3">
+                                            <img className="rounded-sm" src={person.imageUrl} alt={person.name}/>
                                         </div>
                                         <div className="font-medium text-gray-800">{person.name}</div>
                                     </div>
                                 </td>
-                                <td className="p-2 whitespace-nowrap">
+                                <td className="p-3 hover:bg-gray-100 rounded-md whitespace-nowrap">
                                     <div className="text-left">{person.email}</div>
                                 </td>
-                                <td className="p-2 whitespace-nowrap">
+                                <td className="p-4 whitespace-nowrap">
                                     <div className="text-left font-medium text-green-500"></div>
                                 </td>
-                                <td className="p-2 whitespace-nowrap">
+                                <td className="p-4 whitespace-nowrap">
                                     <div className="text-lg text-center"></div>
                                 </td>
                             </tr>
