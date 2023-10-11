@@ -3,9 +3,10 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenu
 import { AcmeLogo } from "../svg/AcmeLogo";
 import { SearchIcon } from "../svg/SearchIcon";
 import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "../svg/Icons";
+import { NavLink } from "react-router-dom";
 
 
-export default function App() {
+export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -44,16 +45,20 @@ export default function App() {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
+          <NavLink to="/">
           <AcmeLogo />
           <p className="font-bold text-inherit">TASKIFY</p>
+          </NavLink>
         </NavbarBrand>
       </NavbarContent>
 
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">TASKIFY</p>
-        </NavbarBrand>
+          <NavLink to="/">
+            <NavbarBrand>
+              <AcmeLogo />
+              <p className="font-bold text-inherit">TASKIFY</p>
+          </NavbarBrand>
+          </NavLink>
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>

@@ -15,7 +15,9 @@ const Main = () => {
                 <Button title={"History"} bg="gray" color={"gray"}/>
                 </NavLink>
                 <Button title={"Taskify Workspace"} bg="gray" color={"gray"}/>
+                <NavLink to="taskvisile">
                 <Button title={"Workspace Visiible"} bg="gray" color={"gray"}/>
+                </NavLink>
                 <Button title={"Invite"} bg="gray" color={"gray"}/>
             </div>
             <Divider/>

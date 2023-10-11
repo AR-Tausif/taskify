@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import MainPage from "../pages/main/MainPage";
 import Boards from "../pages/main/Boards";
 import History from "../pages/main/History";
+import TaskVisible from "../pages/main/TaskVisible";
 
 
 export const router = createBrowserRouter([
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
             {
                 path:"history",
                 element: <History/>
+            },
+            {
+                path:"taskvisile",
+                element: <TaskVisible/>
             },
         ]
     }
