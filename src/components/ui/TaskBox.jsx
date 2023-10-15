@@ -2,7 +2,7 @@
 import { Tooltip } from '@nextui-org/react'
 import { useContext, useState } from 'react'
 import { RiEdit2Line, RiMoreFill, RiPieChart2Fill, RiQuestionAnswerLine } from 'react-icons/ri'
-
+import {AuthContext} from '../../providers/AuthProvider'
 const TaskBox = ({openModal, setOpenModal}) => {
   const [ show, setShow] = useState(false);
   const {dir} = useContext(AuthContext)
