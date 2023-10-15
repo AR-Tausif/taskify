@@ -4,8 +4,12 @@ import UseCaseButton from "../../components/ui/UseCaseButton";
 import { Divider } from "@nextui-org/react";
 import StatusCard from "../../components/ui/StatusCard";
 import TaskBox from "../../components/ui/TaskBox";
+import { useState } from "react";
+import TaskListDetails from "../../components/modals/TaskDetails";
 
 const MainPage = () => {
+  const [openModal, setOpenModal] = useState(false)
+
     return ( 
         <div className="max-w-screen-2xl mx-auto">
             <div className="text-sm py-10">
@@ -34,7 +38,7 @@ const MainPage = () => {
                     <div className="">
                         <StatusCard title={"To Do"} />
                         <div className="space-y-3">
-                            <TaskBox/>
+                            <TaskBox openModal={openModal} setOpenModal={setOpenModal}/>
                         </div>
                     </div>
                     <div className="">
@@ -44,6 +48,10 @@ const MainPage = () => {
                         <StatusCard title={"Done"} />
                     </div>
                 </div>
+
+                {
+                    openModal && <TaskListDetails/>
+                }
         </div>
      );
 }
