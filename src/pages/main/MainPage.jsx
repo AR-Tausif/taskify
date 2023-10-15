@@ -9,7 +9,9 @@ import TaskListDetails from "../../components/modals/TaskDetails";
 
 const MainPage = () => {
   const [openModal, setOpenModal] = useState(false)
-
+    const onClose=()=>{
+        setOpenModal(false)
+    }
     return ( 
         <div className="max-w-screen-2xl mx-auto">
             <div className="text-sm py-10">
@@ -50,7 +52,7 @@ const MainPage = () => {
                 </div>
 
                 {
-                    openModal && <TaskListDetails/>
+                    openModal && <TaskListDetails onClose={onClose} isVisible/>
                 }
         </div>
      );
