@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.next-dropdown-trigger {
+    position: relative !important;
+  }
