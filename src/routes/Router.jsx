@@ -6,6 +6,8 @@ import MainPage from "../pages/main/MainPage";
 import Boards from "../pages/main/Boards";
 import History from "../pages/main/History";
 import TaskVisible from "../pages/main/TaskVisible";
+import Register from "../pages/home/RegisterPage";
+import SignInPage from "../pages/home/SignInPage";
 
 
 export const router = createBrowserRouter([
@@ -18,6 +20,18 @@ export const router = createBrowserRouter([
                 element: <Home/>
             }
         ]
+    },
+    {
+        path: "/register",
+        element: <Register/>,
+    },
+    {
+        path: "/signin",
+        element: <SignInPage/>,
+    },
+    {
+        path: "/profile",
+        element: <div className="text-center font-semibold text-3xl leading-2 mt-20">Your profiile Details Comming Soon. Thanks for your click this URL</div>,
     },
     {
         path: "main",

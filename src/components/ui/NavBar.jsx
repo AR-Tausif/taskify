@@ -1,13 +1,47 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenu, NavbarMenuItem, NavbarMenuToggle, Input, Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem} from "@nextui-org/react";
 import { AcmeLogo } from "../svg/AcmeLogo";
 import { SearchIcon } from "../svg/SearchIcon";
 import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "../svg/Icons";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 
 export default function NavBar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {loggedOutFunc, user} = useContext(AuthContext)
+
+  
+  const handleUserSignOut =()=>{
+    console.log('ksdfkd')
+    loggedOutFunc()
+    .then(() => {
+      // Sign-out successful.
+      toast('You are looged out!', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }).catch((error) => {
+      // An error happened.
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    });
+  }
 
   const menuItems = [
     "Profile",
@@ -84,6 +118,7 @@ export default function NavBar() {
               key="autoscaling"
               description="ACME scales apps to meet user demand, automagically, based on load."
               startContent={icons.scale}
+              textValue="scale"
             >
               Autoscaling
             </DropdownItem>
@@ -91,6 +126,7 @@ export default function NavBar() {
               key="usage_metrics"
               description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
               startContent={icons.activity}
+              textValue="activity"
             >
               Usage Metrics
             </DropdownItem>
@@ -98,6 +134,7 @@ export default function NavBar() {
               key="production_ready"
               description="ACME runs on ACME, join us and others serving requests at web scale."
               startContent={icons.flash}
+              textValue="flash"
             >
               Production Ready
             </DropdownItem>
@@ -105,6 +142,7 @@ export default function NavBar() {
               key="99_uptime"
               description="Applications stay on the grid with high availability and high uptime guarantees."
               startContent={icons.server}
+              textValue="server"
             >
               +99% Uptime
             </DropdownItem>
@@ -112,6 +150,7 @@ export default function NavBar() {
               key="supreme_support"
               description="Overcome any challenge with a supporting team ready to respond."
               startContent={icons.user}
+              textValue="user"
             >
               +Supreme Support
             </DropdownItem>
@@ -153,7 +192,7 @@ export default function NavBar() {
           type="search"
         />
         <Dropdown placement="bottom-end">
-          <DropdownTrigger>
+          <DropdownTrigger >
             <Avatar
               isBordered
               as="button"
@@ -161,22 +200,27 @@ export default function NavBar() {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src={user ? user.photoURL : "https://i.pravatar.cc/150?u=a042581f4e29026704d"}
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
-              <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
+            <DropdownItem key="profile" className="h-14 gap-2 hover:bg-gray-200" textValue="Option">
+              <NavLink to="/profile">
+              <p className="font-semibold text-blue-500 text-xl">{user?.displayName && user.displayName}</p>
+              <p className="font-semibold">{user && user.email}</p>
+              </NavLink>
             </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
+            <DropdownItem key="settings" textValue="My Settings">My Settings</DropdownItem>
+            <DropdownItem key="team_settings" textValue="Team Settinigs">Team Settings</DropdownItem>
+            <DropdownItem key="analytics" textValue="Analitics">Analytics</DropdownItem>
+            <DropdownItem key="system" textValue="System">System</DropdownItem>
+            <DropdownItem key="configurations" textValue="Configurations">Configurations</DropdownItem>
+            <DropdownItem key="help_and_feedback" textValue="Help & Feedback">Help & Feedback</DropdownItem>
+            <DropdownItem key="logout" color="danger" textValue="Log Out">
+              <button onClick={loggedOutFunc}>
               Log Out
+              </button>
+              
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
