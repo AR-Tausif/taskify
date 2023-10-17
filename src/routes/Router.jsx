@@ -8,12 +8,15 @@ import History from "../pages/main/History";
 import TaskVisible from "../pages/main/TaskVisible";
 import Register from "../pages/home/RegisterPage";
 import SignInPage from "../pages/home/SignInPage";
+import PrivateRoutes from "./PrivateRoutes";
+import ErrorPage from "../pages/error/ErrorPage";
 
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <HomeLayout />,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/",
@@ -36,10 +39,11 @@ export const router = createBrowserRouter([
     {
         path: "main",
         element: <Main/>,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/main",
-                element: <MainPage/>
+                element: <PrivateRoutes><MainPage/></PrivateRoutes>
             },
             {
                 path:"board",
