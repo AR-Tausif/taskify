@@ -5,7 +5,8 @@ import { RiEdit2Line, RiMoreFill, RiPieChart2Fill, RiQuestionAnswerLine } from '
 import {AuthContext} from '../../providers/AuthProvider'
 const TaskBox = ({openModal, setOpenModal}) => {
   const [ show, setShow] = useState(false);
-  const {dir} = useContext(AuthContext)
+
+
   return (
     <div 
     className='border overflow-hidden cursor-pointer shadow-sm p-5 hover:bg-sky-100 transition-all'
@@ -20,8 +21,8 @@ const TaskBox = ({openModal, setOpenModal}) => {
           </div>
           <div className={`opacity-0 absolute ${show && "opacity-100"} space-x-2 bg-sky-100 p-1 transition-all top-0 left-60 w-2/6`}>
             
-            <Tooltip radius='none' content="Edit">
-              <button className='p-1  border hover:bg-sky-50 transition-all'><RiEdit2Line/></button>
+            <Tooltip radius='none' content="Edit" id="editable">
+              <button className='p-1  border hover:bg-sky-50 transition-all'><RiEdit2Line /></button>
             </Tooltip>
             <Tooltip radius='none' content="Delete, move to and more...">
               <button className='p-1 border hover:bg-sky-50 transition-all'><RiMoreFill/></button>

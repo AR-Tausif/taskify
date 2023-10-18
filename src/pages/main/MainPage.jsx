@@ -13,8 +13,8 @@ const MainPage = () => {
         setOpenModal(false)
     }
     return ( 
-        <div className="max-w-screen-2xl mx-auto">
-            <div className="text-sm py-10">
+        <div className="max-w-screen-2xl  mx-auto">
+            <div className="text-sm py-10 focus:border-none focus:outline-0"  contentEditable="true">
                 <h3 className="text-7xl font-semibold">Task List</h3>
                 <p>Use this template to track you personal tasks.</p>
                 <p>Click <span className="bg-gray-200 rounded-md">+ New</span> to create a new task directly on this board.</p>
