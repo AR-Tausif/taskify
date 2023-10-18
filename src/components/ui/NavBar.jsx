@@ -200,7 +200,7 @@ export default function NavBar() {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src={user ? user.photoURL : "https://i.pravatar.cc/150?u=a042581f4e29026704d"}
+              src={user ? user.photoURL : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMK9j4g1HplyN1Fe5tRjIYhcAg06in9O7zUYZdRSjdfA&s"}
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
