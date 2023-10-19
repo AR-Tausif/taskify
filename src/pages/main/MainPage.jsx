@@ -6,6 +6,7 @@ import StatusCard from "../../components/ui/StatusCard";
 import TaskBox from "../../components/ui/TaskBox";
 import { useState } from "react";
 import TaskListDetails from "../../components/modals/TaskDetails";
+import AddNew from "../../components/ui/AddNew";
 
 const MainPage = () => {
   const [openModal, setOpenModal] = useState(false)
@@ -42,6 +43,7 @@ const MainPage = () => {
                         <div className="space-y-3">
                             <TaskBox openModal={openModal} setOpenModal={setOpenModal}/>
                         </div>
+                        <AddNew/>
                     </div>
                     <div className="">
                         <StatusCard title={"Doing"} />
