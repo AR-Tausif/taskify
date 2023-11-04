@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 const PrivateRoutes = ({children})=>{
     const {user} = useContext(AuthContext)
     
-    if(user){
+    if(!user){
         return <div>{children}</div>
     }
 }

@@ -11,7 +11,7 @@ const modalOpen =() =>{
 }
     return ( 
         <div className="">
-           <Sidebar/>
+           {/* <Sidebar/> */}
         </div>
      );
 }

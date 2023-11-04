@@ -8,7 +8,7 @@ const Main = () => {
             <NavBar/>
             <div className="flex overflow-hidden">
                     <Sidebar/>
-                <div className="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64 px-20">
+                <div className="min-h-screen w-full bg-gray-50 relative overflow-y-auto lg:ml-64 px-20">
                     <Outlet/>
                 </div>
             </div>
