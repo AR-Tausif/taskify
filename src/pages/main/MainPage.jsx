@@ -1,18 +1,28 @@
 import { RiBatteryChargeLine, RiMoreFill } from "react-icons/ri";
 import { SearchIcon } from "../../components/svg/SearchIcon";
 import UseCaseButton from "../../components/ui/UseCaseButton";
-import { Divider } from "@nextui-org/react";
+import {
+  Button,
+  Divider,
+  Radio,
+  RadioGroup,
+  useDisclosure,
+} from "@nextui-org/react";
 import StatusCard from "../../components/ui/StatusCard";
 import TaskBox from "../../components/ui/TaskBox";
 import { useState } from "react";
 import TaskListDetails from "../../components/modals/TaskDetails";
 import AddNew from "../../components/ui/AddNew";
 import Modal from "../../components/modals/Modal";
+import TaskDetailsModal from "../../components/modals/TaskDetailsModal";
 
 const MainPage = () => {
   const [openModal, setOpenModal] = useState(false);
   const [tasksList, setTaskList] = useState([]);
   const [newData, setNewData] = useState("");
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [scrollBehavior, setScrollBehavior] = useState("inside");
   const onClose = () => {
     setOpenModal(false);
   };
@@ -54,12 +64,20 @@ const MainPage = () => {
           <StatusCard title={"To Do"} />
           <div className="space-y-3">
             {tasksList.map((tsk, index) => (
-              <TaskBox
+              <Button
                 key={index}
-                tsk={tsk}
-                openModal={openModal}
-                setOpenModal={setOpenModal}
-              />
+                onPress={onOpen}
+                className="w-full text-left py-6 overflow-hidden cursor-pointer border shadow-sm  hover:bg-sky-100 transition-all "
+                color="none"
+              >
+                <div className="">
+                  <TaskBox
+                    tsk={tsk}
+                    openModal={openModal}
+                    setOpenModal={setOpenModal}
+                  />
+                </div>
+              </Button>
             ))}
           </div>
           <AddNew setTaskList={setTaskList} setNewData={setNewData} />
@@ -72,33 +90,13 @@ const MainPage = () => {
         </div>
       </div>
 
-      {openModal && <TaskListDetails onClose={onClose} isVisible />}
-
-      {/* <Modal open={openModal} onClose={() => setOpenModal(false)}>
-        <img
-          src="https://raw.githubusercontent.com/fireclint/react-modal/main/src/nft.jpg"
-          alt="/"
-        />
-
-        <div className="modalRight">
-          <p className="closeBtn" onClick={onClose}>
-            X
-          </p>
-          <div className="content">
-            <p>Do you want a</p>
-            <h1>$20 CREDIT</h1>
-            <p>for your first tade?</p>
-          </div>
-          <div className="btnContainer">
-            <button className="btnPrimary">
-              <span className="bold">YES</span>, I love NFT's
-            </button>
-            <button className="btnOutline">
-              <span className="bold">NO</span>, thanks
-            </button>
-          </div>
-        </div>
-      </Modal> */}
+      {/* {openModal && <TaskListDetails onClose={onClose} isVisible />} */}
+      <TaskDetailsModal
+        scrollBehavior={scrollBehavior}
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onOpenChange={onOpenChange}
+      />
     </div>
   );
 };

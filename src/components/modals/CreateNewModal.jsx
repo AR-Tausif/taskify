@@ -6,10 +6,7 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  useDisclosure,
-  Checkbox,
   Input,
-  Link,
 } from "@nextui-org/react";
 
 export default function CreateNewModal({

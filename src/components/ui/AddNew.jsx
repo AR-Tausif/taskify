@@ -14,7 +14,6 @@ const AddNew = ({ setTaskList, setNewData }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [openModal, setOpenModal] = useState(false);
 
   const url =
     "https://3000-artausif-taskifybackend-jjm3ydm6lc8.ws-us105.gitpod.io/tasks";
@@ -23,18 +22,6 @@ const AddNew = ({ setTaskList, setNewData }) => {
   const onSubmit = (data) => {
     setTaskList((prev) => [...prev, data.taskTitle]);
   };
-  // const handleData = () =>{
-
-  //   setOpenModal(!openModal)
-
-  //         // fetch(url, {
-  //         //     method: 'POST',
-  //         //     headers: { 'Content-Type': 'application/json' },
-  //         //     body: JSON.stringify({ title: 'React POST Request Example' })
-  //         // })
-  //         // .then(response => response.json())
-  //         // .then(data => console.log(data));
-  // }
 
   return (
     <Button
